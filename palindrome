@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+// Function to check if a number is a palindrome
+bool isPalindrome(int num) {
+    int original = num;
+    int reversed = 0;
+
+    // Reverse the number
+    while (num > 0) {
+        int digit = num % 10;
+        reversed = reversed * 10 + digit;
+        num /= 10;
+    }
+
+    // Check if the original and reversed numbers are the same
+    return original == reversed;
+}
+
+int main() {
+    int number;
+
+    // Input the number
+    cout << "Enter a number: ";
+    cin >> number;
+
+    // Check if the number is a palindrome
+    if (isPalindrome(number)) {
+        cout << number << " is a palindrome." << endl;
+    } else {
+        cout << number << " is not a palindrome." << endl;
+    }
+
+    return 0;
+}
