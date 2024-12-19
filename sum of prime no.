@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+// Function to check if a number is prime
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+
+// Function to check if a number is a "Bolton number" (divisible by 7 in this case)
+bool isBoltonNumber(int num) {
+    return (num % 7 == 0);
+}
+
+int main() {
+    int start, end, sum = 0;
+
+    // Input range for finding prime numbers
+    cout << "Enter the range (start and end): ";
+    cin >> start >> end;
+
+    // Calculate the sum of prime numbers
+    cout << "Prime numbers in the range: ";
+    for (int i = start; i <= end; i++) {
+        if (isPrime(i)) {
+            cout << i << " ";
+            sum += i;
+        }
+    }
+    cout << endl;
+
+    // Display the sum of prime numbers
+    cout << "Sum of prime numbers: " << sum << endl;
+
+    // Check if the sum is a Bolton number
+    if (isBoltonNumber(sum)) {
+        cout << "The sum is a Bolton number (divisible by 7)." << endl;
+    } else {
+        cout << "The sum is not a Bolton number." << endl;
+    }
+
+    return 0;
+}
